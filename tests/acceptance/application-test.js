@@ -8,15 +8,15 @@ module('Acceptance | application', function(hooks) {
   test('visiting /', async function(assert) {
     await visit('/');
 
-    assert.dom('.loading').doesNotExist('Done');
-    assert.dom('.done').doesNotExist('Done');
+    assert.dom('.loading').doesNotExist();
+    assert.dom('.done').doesNotExist();
 
     click('.do-something'); // Intentionally no await
 
     await waitFor('.loading');
 
-    assert.dom('.loading').includesText('Please wait...');
-    assert.dom('.done').doesNotExist('Done');
+    assert.dom('.loading').exists();
+    assert.dom('.done').doesNotExist();
 
     await settled();
 
