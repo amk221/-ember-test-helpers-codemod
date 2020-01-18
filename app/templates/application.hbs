@@ -1,5 +1,7 @@
-{{!-- The following component displays Ember's default welcome message. --}}
-<WelcomePage />
-{{!-- Feel free to remove this! --}}
+<button type="button" class="do-something" {{on "click" this.doSomething}}>Do something</button>
 
-{{outlet}}
+{{#if this.doingSomething}}
+  <div class="loading">Please wait...</div>
+{{else if this.doneOnce}}
+  <div class="done">Done</div>
+{{/if}}
